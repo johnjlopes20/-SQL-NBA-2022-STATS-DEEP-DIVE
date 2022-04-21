@@ -46,3 +46,48 @@ SELECT Player, Pos, Age, Tm, Ast, STL, BLK, TRB, PTS
 FROM nba_player_stats_table
 WHERE  BLK >= 1
 ORDER BY BLK DESC; 
+
+
+
+-- Get stats for Kevin Durant using the "like" function 
+SELECT *
+FROM `2021-2022 nba player stats`
+WHERE Player LIKE 'Kevin%';
+
+-- Find players averaging 15 or more points and 5 or more rebounds. 
+SELECT * 
+FROM `2021-2022 nba player stats`
+WHERE PTS >= 15 and DRB >= 5
+ORDER BY PTS DESC;
+
+-- What age is the younest player in the league using the MIN function
+SELECT MIN(Age)
+FROM `2021-2022 nba player stats`;
+
+-- What is the age of the oldest player in the league using the MAX function
+SELECT MAX(Age)
+FROM `2021-2022 nba player stats`;
+
+-- What is the average age of a player in the league
+SELECT AVG(Age)
+FROM `2021-2022 nba player stats`;
+
+-- How many total blocks where made this season using the SUM function
+SELECT SUM(BLK)
+FROM `2021-2022 nba player stats`; 
+
+-- Get All stats for Power Forwards and Centers using the IN function
+SELECT *
+FROM `2021-2022 nba player stats`
+WHERE POS IN ('PF', 'C');
+
+-- Get All stats for players ages between 21 and 30
+SELECT * 
+FROM `2021-2022 nba player stats`
+WHERE Age BETWEEN 21 AND 30
+ORDER BY PTS DESC;
+
+-- Use the Alias function to rename the "PTS" Column to "Points" 
+SELECT Player, PTS AS Points 
+FROM `2021-2022 nba player stats`
+ORDER BY Points DESC; 
